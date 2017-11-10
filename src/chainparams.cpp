@@ -60,7 +60,7 @@ public:
         // Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
         //
-        //CBlock(hash=000001faef25dec4fbcf906e6242621df2c183bf232f263d0ba5b101911e4563, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=a2c53f7160b79b5581a3b45a7b384f1e78fdcb35ee93f1c866a2abd2477ad11a, nTime=1510339532, nBits=0x1e0ffff0, nNonce=200204, vtx=1, vchBlockSig=)
+        //CBlock(hash=4bc6f04f9436af757a38f7df4c044417f48425e32c4f057adac6000fadc6b46f, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=a2c53f7160b79b5581a3b45a7b384f1e78fdcb35ee93f1c866a2abd2477ad11a, nTime=1510339532, nBits=0x1e0ffff0, nNonce=200204, vtx=1, vchBlockSig=)
         //  Coinbase(hash=12630d16a9, nTime=1510339532, ver=1, vin.size=1, vout.size=1, nLockTime=0)
         //    CTxIn(COutPoint(0000000000, 4294967295), coinbase 00012a24323020466562203230313420426974636f696e2041544d7320636f6d6520746f20555341)
         //    CTxOut(empty)
