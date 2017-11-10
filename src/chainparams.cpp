@@ -73,21 +73,22 @@ public:
         std::vector<CTxOut> vout;
         vout.resize(1);
         vout[0].SetEmpty();
-        CTransaction txNew(1, 2002041510339532, vin, vout, 0);
+        CTransaction txNew(1, 1510339532, vin, vout, 0);
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
         genesis.nTime    = 1510339532;
-        genesis.nBits    = bnProofOfWorkLimit.GetCompact();
+        // genesis.nBits    = bnProofOfWorkLimit.GetCompact();
+        genesis.nBits    = "0x1e0ffff0";
         genesis.nNonce   = 200204;
 
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x4bc6f04f9436af757a38f7df4c044417f48425e32c4f057adac6000fadc6b46f"));
         assert(genesis.hashMerkleRoot == uint256("0xa2c53f7160b79b5581a3b45a7b384f1e78fdcb35ee93f1c866a2abd2477ad11a"));
 
-        vSeeds.push_back(CDNSSeedData("vasin.nl", "dnsseed.vasin.nl"));
-        vSeeds.push_back(CDNSSeedData("vps.joshuajbouw.com", "dnsseed.joshuajbouw.com"));
+        // vSeeds.push_back(CDNSSeedData());
+        // vSeeds.push_back(CDNSSeedData("vps.joshuajbouw.com", "dnsseed.joshuajbouw.com"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 25);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 85);
