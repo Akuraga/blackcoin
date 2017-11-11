@@ -57,8 +57,8 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "Wired 09/Jan/2014 The Grand Experiment Goes Live: Overstock.com Is Now Accepting Bitcoins";
-    const CScript genesisOutputScript = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
+    const char* pszTimestamp = "start test bonfara monero fork 12/11/2017";
+    const CScript genesisOutputScript = CScript() << ParseHex("041338131f07e16764c4f1cef29ca735919a93831d03a94384d929d476652e414aebb63c84436f1398a4c1ee369385d7c390fda856de86c2af7fe180c17077111f") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
@@ -121,7 +121,7 @@ public:
         genesis.nTime    = 1510439244;
         genesis.nBits    = bnProofOfWorkLimit.GetCompact();
         genesis.nNonce   = 447265;
-        genesis = CreateGenesisBlock(1510439244, 447265, 0x1e0ffff0, 1, 500 * COIN);
+        genesis = CreateGenesisBlock(1510439244, 447265, 0x1e0ffff0, 1, 50000000 * COIN);
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x385cc024f2a17c5345e3e8a9604eb257e6233858f35a98389497b900a52451fe"));
         assert(genesis.hashMerkleRoot == uint256("0x8212240483ea2aec477f7bb86e2ae3e5943f9528f131d771e2258ca6d20251c5"));
