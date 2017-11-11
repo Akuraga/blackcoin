@@ -23,26 +23,7 @@ struct SeedSpec6 {
 //
 // Main network
 //
-static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesisOutputScript, uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
-{
-    CMutableTransaction txNew;
-    txNew.nVersion = 1;
-    txNew.vin.resize(1);
-    txNew.vout.resize(1);
-    txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << std::vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-    txNew.vout[0].nValue = genesisReward;
-    txNew.vout[0].scriptPubKey = genesisOutputScript;
 
-    CBlock genesis;
-    genesis.nTime    = nTime;
-    genesis.nBits    = nBits;
-    genesis.nNonce   = nNonce;
-    genesis.nVersion = nVersion;
-    genesis.vtx.push_back(txNew);
-    genesis.hashPrevBlock.SetNull();
-    genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
-    return genesis;
-}
 
 /**
  * Build the genesis block. Note that the output of its generation
@@ -55,12 +36,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
  *   vMerkleTree: e0028e
  */
-static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
-{
-    const char* pszTimestamp = "start test bonfara monero fork 12/11/2017";
-    const CScript genesisOutputScript = CScript() << ParseHex("041338131f07e16764c4f1cef29ca735919a93831d03a94384d929d476652e414aebb63c84436f1398a4c1ee369385d7c390fda856de86c2af7fe180c17077111f") << OP_CHECKSIG;
-    return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
-}
+
 
 
 // Convert the pnSeeds6 array into usable address objects.
@@ -99,11 +75,11 @@ public:
         // Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
         //
-        // CBlock(hash=4bc6f04f9436af757a38f7df4c044417f48425e32c4f057adac6000fadc6b46f, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=a2c53f7160b79b5581a3b45a7b384f1e78fdcb35ee93f1c866a2abd2477ad11a, nTime=1510439244, nBits=0x1e0ffff0, nNonce=200204, vtx=1, vchBlockSig=)
-        // Coinbase(hash=12630d16a9, nTime=1510439244, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-        //    CTxIn(COutPoint(0000000000, 4294967295), coinbase 00012a24323020466562203230313420426974636f696e2041544d7320636f6d6520746f20555341)
-        //    CTxOut(empty)
-        //    vMerkleTree: 12630d16a9
+         CBlock(hash=4bc6f04f9436af757a38f7df4c044417f48425e32c4f057adac6000fadc6b46f, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=a2c53f7160b79b5581a3b45a7b384f1e78fdcb35ee93f1c866a2abd2477ad11a, nTime=1510439244, nBits=0x1e0ffff0, nNonce=200204, vtx=1, vchBlockSig=)
+         Coinbase(hash=12630d16a9, nTime=1510439244, ver=1, vin.size=1, vout.size=1, nLockTime=0)
+            CTxIn(COutPoint(0000000000, 4294967295), coinbase 00012a24323020466562203230313420426974636f696e2041544d7320636f6d6520746f20555341)
+            CTxOut(empty)
+            vMerkleTree: 12630d16a9
 
 
         const char* pszTimestamp = "start test bonfara monero fork 12/11/2017";
@@ -113,7 +89,7 @@ public:
         std::vector<CTxOut> vout;
         vout.resize(1);
         vout[0].SetEmpty();
-        CTransaction txNew(1, 1510439244, vin, vout, 0);
+        CTransaction txNew(1, 1510439244, vin, vout, 50000000000);
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
@@ -121,7 +97,7 @@ public:
         genesis.nTime    = 1510439244;
         genesis.nBits    = bnProofOfWorkLimit.GetCompact();
         genesis.nNonce   = 447265;
-        genesis = CreateGenesisBlock(1510439244, 447265, 0x1e0ffff0, 1, 50000000 * COIN);
+
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x385cc024f2a17c5345e3e8a9604eb257e6233858f35a98389497b900a52451fe"));
         assert(genesis.hashMerkleRoot == uint256("0x8212240483ea2aec477f7bb86e2ae3e5943f9528f131d771e2258ca6d20251c5"));
