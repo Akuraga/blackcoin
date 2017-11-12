@@ -56,7 +56,7 @@ public:
         nDefaultPort = 15714;
         nRPCPort = 15715;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 20);
-
+        const char* pszTimestamp = "start test bonfara monero fork 12/11/2017";
         // Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
         //
@@ -65,7 +65,7 @@ public:
             CTxIn(COutPoint(0000000000, 4294967295), coinbase 00012a24323020466562203230313420426974636f696e2041544d7320636f6d6520746f20555341)
             CTxOut(empty)
           vMerkleTree: 12630d16a9
-        const char* pszTimestamp = "start test bonfara monero fork 12/11/2017";
+        
         std::vector<CTxIn> vin;
         vin.resize(1);
         vin[0].scriptSig = CScript() << 0 << CBigNum(42) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
