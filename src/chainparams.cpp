@@ -24,21 +24,6 @@ struct SeedSpec6 {
 // Main network
 //
 
-
-/**
- * Build the genesis block. Note that the output of its generation
- * transaction cannot be spent since it did not originally exist in the
- * database.
- *
- * CBlock(hash=00000ffd590b14, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=e0028e, nTime=1390095618, nBits=1e0ffff0, nNonce=28917698, vtx=1)
- *   CTransaction(hash=e0028e, ver=1, vin.size=1, vout.size=1, nLockTime=0)
- *     CTxIn(COutPoint(000000, -1), coinbase 04ffff001d01044c5957697265642030392f4a616e2f3230313420546865204772616e64204578706572696d656e7420476f6573204c6976653a204f76657273746f636b2e636f6d204973204e6f7720416363657074696e6720426974636f696e73)
- *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
- *   vMerkleTree: e0028e
- */
-
-
-
 // Convert the pnSeeds6 array into usable address objects.
 static void convertSeed6(std::vector<CAddress> &vSeedsOut, const SeedSpec6 *data, unsigned int count)
 {
@@ -68,20 +53,18 @@ public:
         pchMessageStart[2] = 0x22;
         pchMessageStart[3] = 0x05;
         vAlertPubKey = ParseHex("041338131f07e16764c4f1cef29ca735919a93831d03a94384d929d476652e414aebb63c84436f1398a4c1ee369385d7c390fda856de86c2af7fe180c17077111f");
-        nDefaultPort = 15070;
-        nRPCPort = 15071;
+        nDefaultPort = 15714;
+        nRPCPort = 15715;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 20);
 
         // Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
         //
-         CBlock(hash=385cc024f2a17c5345e3e8a9604eb257e6233858f35a98389497b900a52451fe, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=8212240483ea2aec477f7bb86e2ae3e5943f9528f131d771e2258ca6d20251c5, nTime=1510439244, nBits=0x1e0ffff0, nNonce=447265, vtx=1, vchBlockSig=)
-         Coinbase(hash=12630d16a9, nTime=1510439244, ver=1, vin.size=1, vout.size=1, nLockTime=0)
+        CBlock(hash=385cc024f2a17c5345e3e8a9604eb257e6233858f35a98389497b900a52451fe, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=8212240483ea2aec477f7bb86e2ae3e5943f9528f131d771e2258ca6d20251c5, nTime=1510439244, nBits=1e0ffff0, nNonce=447265, vtx=1, vchBlockSig=)
+          Coinbase(hash=12630d16a9, nTime=1510439244, ver=1, vin.size=1, vout.size=1, nLockTime=0)
             CTxIn(COutPoint(0000000000, 4294967295), coinbase 00012a24323020466562203230313420426974636f696e2041544d7320636f6d6520746f20555341)
             CTxOut(empty)
-            vMerkleTree: 12630d16a9
-
-
+          vMerkleTree: 12630d16a9
         const char* pszTimestamp = "start test bonfara monero fork 12/11/2017";
         std::vector<CTxIn> vin;
         vin.resize(1);
@@ -102,8 +85,6 @@ public:
         assert(hashGenesisBlock == uint256("0x385cc024f2a17c5345e3e8a9604eb257e6233858f35a98389497b900a52451fe"));
         assert(genesis.hashMerkleRoot == uint256("0x8212240483ea2aec477f7bb86e2ae3e5943f9528f131d771e2258ca6d20251c5"));
 
-        // vSeeds.push_back(CDNSSeedData());
-        // vSeeds.push_back(CDNSSeedData("vps.joshuajbouw.com", "dnsseed.joshuajbouw.com"));
         vFixedSeeds.clear();
         vSeeds.clear();
 
@@ -115,7 +96,7 @@ public:
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
-        nLastPOWBlock = 1000;
+        nLastPOWBlock = 10000;
     }
 
     virtual const CBlock& GenesisBlock() const { return genesis; }
@@ -146,17 +127,16 @@ public:
         pchMessageStart[2] = 0xc0;
         pchMessageStart[3] = 0xef;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 16);
-        vAlertPubKey = ParseHex("041338131f07e16764c4f1cef29ca735919a93831d03a94384d929d476652e414aebb63c84436f1398a4c1ee369385d7c390fda856de86c2af7fe180c17077111f");
-        nDefaultPort = 25070;
-        nRPCPort = 25071;
+        vAlertPubKey = ParseHex("0471dc165db490094d35cde15b1f5d755fa6ad6f2b5ed0f340e3f17f57389c3c2af113a8cbcc885bde73305a553b5640c83021128008ddf882e856336269080496");
+        nDefaultPort = 25714;
+        nRPCPort = 25715;
         strDataDir = "testnet";
 
         // Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nBits  = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce = 257028;
-        genesis.nTime    = 1510439245;
+        genesis.nNonce = 216178;
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x6a0448e55d8192713bf0838f1dd1da87cbb80ae16085ae71cf16e734f64bd1bc"));
+        assert(hashGenesisBlock == uint256("0x0000724595fb3b9609d441cbfb9577615c292abf07d996d3edabc48de843642d"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -187,13 +167,13 @@ public:
         pchMessageStart[2] = 0xb5;
         pchMessageStart[3] = 0xda;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 1);
-        genesis.nTime = 1510439247;
+        genesis.nTime = 1411111111;
         genesis.nBits  = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce = 3;
+        genesis.nNonce = 2;
         hashGenesisBlock = genesis.GetHash();
-        nDefaultPort = 8444;
+        nDefaultPort = 18444;
         strDataDir = "regtest";
-        assert(hashGenesisBlock == uint256("0x36432db29dc22108663838cf024cb27efae0f7874d89c3162269454298478c8d"));
+        assert(hashGenesisBlock == uint256("0x523dda6d336047722cbaf1c5dce622298af791bac21b33bf6e2d5048b2a13e3d"));
 
         vSeeds.clear();  // Regtest mode doesn't have any DNS seeds.
     }
