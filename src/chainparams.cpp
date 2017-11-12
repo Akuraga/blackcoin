@@ -72,12 +72,12 @@ public:
         std::vector<CTxOut> vout;
         vout.resize(1);
         vout[0].SetEmpty();
-        CTransaction txNew(1, 1510439244, vin, vout, 0);
+        CTransaction txNew(1, 1510498429, vin, vout, 0);
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1510439244;
+        genesis.nTime    = 1510498429;
         genesis.nBits    = bnProofOfWorkLimit.GetCompact();
         genesis.nNonce   = 447265;
 
@@ -203,7 +203,7 @@ public:
         pchMessageStart[2] = 0xb5;
         pchMessageStart[3] = 0xda;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 1);
-        genesis.nTime = 1411111111;
+        genesis.nTime = 1510498439;
         genesis.nBits  = bnProofOfWorkLimit.GetCompact();
         genesis.nNonce = 2;
         hashGenesisBlock = genesis.GetHash();
