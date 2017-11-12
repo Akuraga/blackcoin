@@ -155,7 +155,6 @@ public:
         genesis.nBits  = bnProofOfWorkLimit.GetCompact();
         genesis.nNonce = 257028;
         genesis.nTime    = 1510439245;
-        genesis = CreateGenesisBlock(1510439245, 257028, 0x1e0ffff0, 1, 500 * COIN);
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x6a0448e55d8192713bf0838f1dd1da87cbb80ae16085ae71cf16e734f64bd1bc"));
 
