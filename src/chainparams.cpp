@@ -171,10 +171,12 @@ public:
         // Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nBits  = bnProofOfWorkLimit.GetCompact();
         genesis.nNonce = 1205071;
-
+        genesis.nTime    = 1510498429;
 
         hashGenesisBlock = genesis.GetHash();
+        hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x000009ab80362c157b5aa563567123794fa42e4a3097dfa58e3908221dcd6447"));
+        assert(genesis.hashMerkleRoot == uint256("0x11ba8815cffb440dcfbb2a9abb887092e86bf2b4c2d0ddd3add6ad244cbe9ca5"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
