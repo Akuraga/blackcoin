@@ -170,7 +170,50 @@ public:
 
         // Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nBits  = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce = 1205071;
+        genesis.nNonce = 1362089;
+
+
+
+
+
+        hashGenesisBlock = genesis.GetHash();
+        assert(hashGenesisBlock == uint256("0x000094097794557e699a64d83c99bc6796b83a8b50c16e62f4e81e32adba410e"));
+        assert(genesis.hashMerkleRoot == uint256("0x11ba8815cffb440dcfbb2a9abb887092e86bf2b4c2d0ddd3add6ad244cbe9ca5"));
+
+        vFixedSeeds.clear();
+        vSeeds.clear();
+
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 111);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 196);
+        base58Prefixes[SECRET_KEY]     = std::vector<unsigned char>(1, 239);
+        base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
+
+        convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
+
+        nLastPOWBlock = 0x7fffffff;
+    }
+    virtual Network NetworkID() const { return CChainParams::TESTNET; }
+};
+static CTestNetParams testNetParams;
+
+
+//
+// Regression test
+//
+class CRegTestParams : public CTestNetParams {
+public:
+    CRegTestParams() {
+        pchMessageStart[0] = 0xfa;
+        pchMessageStart[1] = 0xbf;
+        pchMessageStart[2] = 0xb5;
+        pchMessageStart[3] = 0xda;
+        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 1);
+        genesis.nTime = 1510498439;
+        genesis.nBits  = bnProofOfWorkLimit.GetCompact();
+        genesis.nNonce = 2;
+
+
 
          if (true && genesis.GetHash() != hashGenesisBlock)
                         {
@@ -204,42 +247,6 @@ public:
 
 
 
-        hashGenesisBlock = genesis.GetHash();
-      //  assert(hashGenesisBlock == uint256("0x000009ab80362c157b5aa563567123794fa42e4a3097dfa58e3908221dcd6447"));
-      //  assert(genesis.hashMerkleRoot == uint256("0x11ba8815cffb440dcfbb2a9abb887092e86bf2b4c2d0ddd3add6ad244cbe9ca5"));
-
-        vFixedSeeds.clear();
-        vSeeds.clear();
-
-//        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 111);
-//        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 196);
-//        base58Prefixes[SECRET_KEY]     = std::vector<unsigned char>(1, 239);
-//        base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-//        base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
-
-        convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
-
-        nLastPOWBlock = 0x7fffffff;
-    }
-    virtual Network NetworkID() const { return CChainParams::TESTNET; }
-};
-static CTestNetParams testNetParams;
-
-
-//
-// Regression test
-//
-class CRegTestParams : public CTestNetParams {
-public:
-    CRegTestParams() {
-        pchMessageStart[0] = 0xfa;
-        pchMessageStart[1] = 0xbf;
-        pchMessageStart[2] = 0xb5;
-        pchMessageStart[3] = 0xda;
-        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 1);
-        genesis.nTime = 1510498439;
-        genesis.nBits  = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce = 2;
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 18444;
         strDataDir = "regtest";
