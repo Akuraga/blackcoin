@@ -181,9 +181,9 @@ public:
         pchMessageStart[2] = 0xb5;
         pchMessageStart[3] = 0xda;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 1);
-        genesis.nTime = 1510498439;
+        genesis.nTime = 1510825861;
         genesis.nBits  = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce = 2;
+        genesis.nNonce = 6;
 
 
          if (true && genesis.GetHash() != hashGenesisBlock)
