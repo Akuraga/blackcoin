@@ -79,7 +79,7 @@ public:
         genesis.nVersion = 1;
         genesis.nTime    = 1510875000;
         genesis.nBits    = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce   = 1205071;
+        genesis.nNonce   = 1369395;
 
 
 				// uncomment to log genesis block info        
@@ -118,8 +118,8 @@ public:
 	
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256(""));
-        assert(genesis.hashMerkleRoot == uint256(""));
+        assert(hashGenesisBlock == uint256("0x00000e1c5716605bdec5e90024478976f5d3645f720c40ff33e606c557c85b9b"));
+        assert(genesis.hashMerkleRoot == uint256("0xfadf869560b33bed3d47ee6d036f9c48db4c2d5f386d750c048c189c1cc43693"));
 
 //        vSeeds.push_back(CDNSSeedData("", ""));
 //        vSeeds.push_back(CDNSSeedData("", ""));
@@ -180,8 +180,8 @@ public:
 
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000094097794557e699a64d83c99bc6796b83a8b50c16e62f4e81e32adba410e"));
-        assert(genesis.hashMerkleRoot == uint256("0x11ba8815cffb440dcfbb2a9abb887092e86bf2b4c2d0ddd3add6ad244cbe9ca5"));
+        assert(hashGenesisBlock == uint256(""));
+        assert(genesis.hashMerkleRoot == uint256(""));
 
         vFixedSeeds.clear();
         vSeeds.clear();
