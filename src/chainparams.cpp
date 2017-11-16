@@ -72,7 +72,7 @@ public:
         std::vector<CTxOut> vout;
         vout.resize(1);
         vout[0].SetEmpty();
-        CTransaction txNew(1, 1510498429, vin, vout, 100);
+        CTransaction txNew(1, 1510498429, vin, vout, 0;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
@@ -123,12 +123,10 @@ public:
 
 //        vSeeds.push_back(CDNSSeedData("", ""));
 //        vSeeds.push_back(CDNSSeedData("", ""));
-
         vFixedSeeds.clear();
         vSeeds.clear();
-
-        base58Prefixes[PUBKEY_ADDRESS] = list_of(27);
-        base58Prefixes[SCRIPT_ADDRESS] = list_of(25);
+        base58Prefixes[PUBKEY_ADDRESS] = list_of(63);
+        base58Prefixes[SCRIPT_ADDRESS] = list_of(125);
         base58Prefixes[SECRET_KEY] =     list_of(153);
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4);
