@@ -72,7 +72,7 @@ public:
         std::vector<CTxOut> vout;
         vout.resize(1);
         vout[0].SetEmpty();
-        CTransaction txNew(1, 1510498429, vin, vout, 0);
+        CTransaction txNew(1, 1510498429, vin, vout, 100);
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
@@ -121,8 +121,11 @@ public:
         assert(hashGenesisBlock == uint256("0x000009ab80362c157b5aa563567123794fa42e4a3097dfa58e3908221dcd6447"));
         assert(genesis.hashMerkleRoot == uint256("0x11ba8815cffb440dcfbb2a9abb887092e86bf2b4c2d0ddd3add6ad244cbe9ca5"));
 
-        vSeeds.push_back(CDNSSeedData("", ""));
-        vSeeds.push_back(CDNSSeedData("", ""));
+//        vSeeds.push_back(CDNSSeedData("", ""));
+//        vSeeds.push_back(CDNSSeedData("", ""));
+
+        vFixedSeeds.clear();
+        vSeeds.clear();
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(27);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(25);
