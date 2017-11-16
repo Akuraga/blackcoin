@@ -79,7 +79,7 @@ public:
         genesis.nVersion = 1;
         genesis.nTime    = 1510876740;
         genesis.nBits    = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce   = 1369395;
+        genesis.nNonce   = 2777260;
 
 
 				// uncomment to log genesis block info        
@@ -118,8 +118,8 @@ public:
 	
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256(""));
-        assert(genesis.hashMerkleRoot == uint256(""));
+        assert(hashGenesisBlock == uint256("0x0000062b8feb38803aaa2b4f9d19f82a3599fa3428a5def43c4315cda91380b3"));
+        assert(genesis.hashMerkleRoot == uint256("0x45ac4c7bc8e478f9f2c2fc69fba83b568b2cb05abc7d30db37b9cfba751341f0"));
 
 //        vSeeds.push_back(CDNSSeedData("", ""));
 //        vSeeds.push_back(CDNSSeedData("", ""));
