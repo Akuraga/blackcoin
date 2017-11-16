@@ -118,15 +118,15 @@ public:
 	
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000009ab80362c157b5aa563567123794fa42e4a3097dfa58e3908221dcd6447"));
-        assert(genesis.hashMerkleRoot == uint256("0x11ba8815cffb440dcfbb2a9abb887092e86bf2b4c2d0ddd3add6ad244cbe9ca5"));
+        assert(hashGenesisBlock == uint256());
+        assert(genesis.hashMerkleRoot == uint256());
 
 //        vSeeds.push_back(CDNSSeedData("", ""));
 //        vSeeds.push_back(CDNSSeedData("", ""));
         vFixedSeeds.clear();
         vSeeds.clear();
-        base58Prefixes[PUBKEY_ADDRESS] = list_of(63);
-        base58Prefixes[SCRIPT_ADDRESS] = list_of(125);
+        base58Prefixes[PUBKEY_ADDRESS] = list_of(21);
+        base58Prefixes[SCRIPT_ADDRESS] = list_of(128);
         base58Prefixes[SECRET_KEY] =     list_of(153);
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4);
