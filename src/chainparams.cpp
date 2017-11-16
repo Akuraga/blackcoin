@@ -72,12 +72,12 @@ public:
         std::vector<CTxOut> vout;
         vout.resize(1);
         vout[0].SetEmpty();
-        CTransaction txNew(1, 1510875000, vin, vout, 0);
+        CTransaction txNew(1, 1510876740, vin, vout, 0);
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1510875000;
+        genesis.nTime    = 1510876740;
         genesis.nBits    = bnProofOfWorkLimit.GetCompact();
         genesis.nNonce   = 1369395;
 
@@ -118,8 +118,8 @@ public:
 	
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000e1c5716605bdec5e90024478976f5d3645f720c40ff33e606c557c85b9b"));
-        assert(genesis.hashMerkleRoot == uint256("0xfadf869560b33bed3d47ee6d036f9c48db4c2d5f386d750c048c189c1cc43693"));
+        assert(hashGenesisBlock == uint256(""));
+        assert(genesis.hashMerkleRoot == uint256(""));
 
 //        vSeeds.push_back(CDNSSeedData("", ""));
 //        vSeeds.push_back(CDNSSeedData("", ""));
@@ -180,8 +180,8 @@ public:
 
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000e1c5716605bdec5e90024478976f5d3645f720c40ff33e606c557c85b9b"));
-        assert(genesis.hashMerkleRoot == uint256("0xfadf869560b33bed3d47ee6d036f9c48db4c2d5f386d750c048c189c1cc43693"));
+        assert(hashGenesisBlock == uint256(""));
+        assert(genesis.hashMerkleRoot == uint256(""));
 
         vFixedSeeds.clear();
         vSeeds.clear();
