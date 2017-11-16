@@ -124,8 +124,8 @@ public:
         vSeeds.push_back(CDNSSeedData("", ""));
         vSeeds.push_back(CDNSSeedData("", ""));
 
-        base58Prefixes[PUBKEY_ADDRESS] = list_of(63);
-        base58Prefixes[SCRIPT_ADDRESS] = list_of(125);
+        base58Prefixes[PUBKEY_ADDRESS] = list_of(27);
+        base58Prefixes[SCRIPT_ADDRESS] = list_of(25);
         base58Prefixes[SECRET_KEY] =     list_of(153);
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4);
