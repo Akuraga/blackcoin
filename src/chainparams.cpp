@@ -79,47 +79,19 @@ public:
         genesis.nVersion = 1;
         genesis.nTime    = 1510882800;
         genesis.nBits    = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce   = 2777260;
+        genesis.nNonce   = 3017587;
 
 
 				// uncomment to log genesis block info        
        //  start
-         if (true && genesis.GetHash() != hashGenesisBlock)
-                        {
-                            printf("Searching for genesis block...\n");
-                            uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
-                            uint256 thash;
- 
-                            while (true)
-                            {
-                               thash = genesis.GetHash();
-                               if (thash <= hashTarget)
-                                   break;
-                               if ((genesis.nNonce & 0xFFF) == 0)
-                               {
-                                   printf("nonce %08X: hash = %s (target = %s)\n", genesis.nNonce, thash.ToString().c_str(), hashTarget.ToString().c_str());
-                               }
-                               ++genesis.nNonce;
-                               if (genesis.nNonce == 0)
-                               {
-                                   printf("NONCE WRAPPED, incrementing time\n");
-                                   ++genesis.nTime;
-                               }
-                           }
-                           printf("genesis.nTime = %u \n", genesis.nTime);
-                           printf("genesis.nNonce = %u \n", genesis.nNonce);
-                           printf("genesis.nVersion = %u \n", genesis.nVersion);
-                           printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str()); //first this, then comment this line out and uncomment the one under.
-                           printf("genesis.hashMerkleRoot = %s \n", genesis.hashMerkleRoot.ToString().c_str()); //improvised. worked for me, to find merkle root
 
-                       }
 //
 //        //end
 	
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256(""));
-        assert(genesis.hashMerkleRoot == uint256(""));
+        assert(hashGenesisBlock == uint256("0x00000acd213c978adecef7ff0979ede0024b54693b0f754a73b11c545f5ad583"));
+        assert(genesis.hashMerkleRoot == uint256("0x34522151ca5dafabc61daf032db1412cfb6830b4a9d6dad772996495fd4a8b96"));
 
 //        vSeeds.push_back(CDNSSeedData("", ""));
 //        vSeeds.push_back(CDNSSeedData("", ""));
@@ -175,13 +147,41 @@ public:
         genesis.nBits  = bnProofOfWorkLimit.GetCompact();
         genesis.nNonce = 1399357;
 
+         if (true && genesis.GetHash() != hashGenesisBlock)
+                        {
+                            printf("Searching for genesis block...\n");
+                            uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
+                            uint256 thash;
+ 
+                            while (true)
+                            {
+                               thash = genesis.GetHash();
+                               if (thash <= hashTarget)
+                                   break;
+                               if ((genesis.nNonce & 0xFFF) == 0)
+                               {
+                                   printf("nonce %08X: hash = %s (target = %s)\n", genesis.nNonce, thash.ToString().c_str(), hashTarget.ToString().c_str());
+                               }
+                               ++genesis.nNonce;
+                               if (genesis.nNonce == 0)
+                               {
+                                   printf("NONCE WRAPPED, incrementing time\n");
+                                   ++genesis.nTime;
+                               }
+                           }
+                           printf("genesis.nTime = %u \n", genesis.nTime);
+                           printf("genesis.nNonce = %u \n", genesis.nNonce);
+                           printf("genesis.nVersion = %u \n", genesis.nVersion);
+                           printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str()); //first this, then comment this line out and uncomment the one under.
+                           printf("genesis.hashMerkleRoot = %s \n", genesis.hashMerkleRoot.ToString().c_str()); //improvised. worked for me, to find merkle root
 
+                       }
 
 
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x0000d1286c0181047be022f9c1f4956c5ae563a27ab2a0f7f3ae0a4003c82b9e"));
-        assert(genesis.hashMerkleRoot == uint256("0x45ac4c7bc8e478f9f2c2fc69fba83b568b2cb05abc7d30db37b9cfba751341f0"));
+        assert(hashGenesisBlock == uint256(""));
+        assert(genesis.hashMerkleRoot == uint256(""));
 
         vFixedSeeds.clear();
         vSeeds.clear();
