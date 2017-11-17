@@ -223,7 +223,7 @@ public:
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 18444;
         strDataDir = "regtest";
-        assert(hashGenesisBlock == uint256("4ca93900412e5d7cd2d5088106566eb806f4ac71b426a758d9e8049be44d2629"));
+        assert(hashGenesisBlock == uint256("0x4ca93900412e5d7cd2d5088106566eb806f4ac71b426a758d9e8049be44d2629"));
 
         vSeeds.clear();  // Regtest mode doesn't have any DNS seeds.
     }
