@@ -77,7 +77,7 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1510967546;
+        genesis.nTime    = 1510969546;
         genesis.nBits    = bnProofOfWorkLimit.GetCompact();
         genesis.nNonce   = 5125426;
 
@@ -213,7 +213,7 @@ public:
         pchMessageStart[2] = 0xb5;
         pchMessageStart[3] = 0xda;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 1);
-        genesis.nTime = 1510967547;
+        genesis.nTime = 1510969547;
         genesis.nBits  = bnProofOfWorkLimit.GetCompact();
         genesis.nNonce = 7;
 
