@@ -2039,7 +2039,7 @@ bool CBlock::AcceptBlock()
 
     // Check coinbase timestamp
     if (GetBlockTime() > FutureDrift((int64_t)vtx[0].nTime, nHeight))
-        return DoS(50, error("AcceptBlock() : coinbase timestamp is too early :" + (int64_t)vtx[0].nTime +">> nHeight: "+ nHeight));
+        return DoS(50, error("AcceptBlock() : coinbase timestamp is too early", (int64_t)vtx[0].nTime));
 
     // Check coinstake timestamp
     if (IsProofOfStake() && !CheckCoinStakeTimestamp(nHeight, GetBlockTime(), (int64_t)vtx[1].nTime))
