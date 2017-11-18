@@ -79,7 +79,7 @@ public:
         genesis.nVersion = 1;
         genesis.nTime    = 1511029924;
         genesis.nBits    = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce   = ;
+        genesis.nNonce   = 21341;
 
 
 				// uncomment to log genesis block info        
