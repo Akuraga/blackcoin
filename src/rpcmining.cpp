@@ -162,11 +162,11 @@ Value checkkernel(const Array& params, bool fHelp)
     Array inputs = params[0].get_array();
     bool fCreateBlockTemplate = params.size() > 1 ? params[1].get_bool() : false;
 
-    //if (vNodes.empty())
-     //   throw JSONRPCError(-9, "BlackCoin is not connected!");
+    if (vNodes.empty())
+        throw JSONRPCError(-9, "BlackCoin is not connected!");
 
-    //if (IsInitialBlockDownload())
-        //throw JSONRPCError(-10, "BlackCoin is downloading blocks...");
+    if (IsInitialBlockDownload())
+        throw JSONRPCError(-10, "BlackCoin is downloading blocks...");
 
     COutPoint kernel;
     CBlockIndex* pindexPrev = pindexBest;
@@ -381,7 +381,7 @@ Value getwork(const Array& params, bool fHelp)
         throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "BlackCoin is not connected!");
 
     if (IsInitialBlockDownload())
-       throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "BlackCoin is downloading blocks...");
+        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "BlackCoin is downloading blocks...");
 
     if (pindexBest->nHeight >= Params().LastPOWBlock())
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
@@ -525,7 +525,7 @@ Value getblocktemplate(const Array& params, bool fHelp)
         throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "BlackCoin is not connected!");
 
     if (IsInitialBlockDownload())
-       throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "BlackCoin is downloading blocks...");
+        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "BlackCoin is downloading blocks...");
 
     if (pindexBest->nHeight >= Params().LastPOWBlock())
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
